@@ -33,19 +33,13 @@ public class MainPage extends AbsBasePage<MainPage> {
     }
 
     public void clickLessonTileByTitle(String title) {
-        String lessonCardLocatorTemplate = String.format("//a[not(@class)][contains(@href, '/lessons')][.//*[text()='%s']]", title);
+        String lessonCardLocatorTemplate = String.format("//a[contains(@href, '/lessons')][.//*[text()='%s']]", title);
 
         $(By.xpath(lessonCardLocatorTemplate)).click();
     }
     public MainPage waitForLoad() {
         {
             new Waiters(driver).waitForPageToLoad();
-            new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(d -> {
-                    WebElement item = lessonItems.get(1);
-                    return item.isDisplayed() &&
-                        !item.findElement(By.xpath(".//h6/div")).getText().isEmpty();
-                });
             return this;
         }
 
