@@ -59,10 +59,10 @@ public abstract class AbsBasePage<T> extends AbsCommon<T> {
     public T pageHeaderShouldBeSameAs(String title) {
 
         assertThat(header.getText()).
-                as("Header of page should be{}", title)
+                as("Header of page should be {}", title)
                 .isEqualTo(title);
 
-        return (T)this;
+        return (T) this;
 
     }
 

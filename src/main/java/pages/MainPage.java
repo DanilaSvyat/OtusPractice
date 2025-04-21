@@ -29,7 +29,6 @@ public class MainPage extends AbsBasePage<MainPage> {
 
       return lessonItems.get(index)
           .findElement(By.xpath(".//h6/div")).getText();
-         /* .getText();*/
     }
 
     public void clickLessonTileByTitle(String title) {

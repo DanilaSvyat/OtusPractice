@@ -17,6 +17,7 @@ waiters\Waiters.class
 data\menu\HeaderMenuData.class
 extensions\UIExtension.class
 annotations\components\Component.class
+pages\CourseCatalogPage.class
 factory\settings\IBrowserSettings.class
 components\AbsComponent.class
 exceptions\BrowserNotFoundException.class

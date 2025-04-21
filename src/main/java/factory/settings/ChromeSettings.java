@@ -15,7 +15,7 @@ public class ChromeSettings implements IBrowserSettings{
     chromeOptions.addArguments("--no-sandbox");
 
     if(Boolean.getBoolean(System.getProperty("StartEmptyPage"))) {
-      chromeOptions.addArguments("--empty-blank");
+      chromeOptions.addArguments("about:blank");
     }
     return chromeOptions;
   }

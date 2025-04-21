@@ -5,7 +5,9 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import components.static_component.HeaderMenuComponent;
 import factory.WebDriverFactory;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
+import pages.CourseCatalogPage;
 import pages.LessonCardPage;
 import pages.MainPage;
 
@@ -29,6 +31,11 @@ public MainPage getMainPage() {
     public LessonCardPage getLessonCardPage() {
     return new LessonCardPage(driver);
 }
+    @Singleton
+    @Provides
+    public CourseCatalogPage courseCatalogPage(){
+     return new CourseCatalogPage(driver);
+    }
 
   @Singleton
   @Provides

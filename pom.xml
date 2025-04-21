@@ -72,6 +72,7 @@
           <systemPropertyVariables>
             <browser>${browser}</browser>
             <base.url>https://otus.ru</base.url>
+            <courseName>devops lead</courseName>
           </systemPropertyVariables>
         </configuration>
       </plugin>

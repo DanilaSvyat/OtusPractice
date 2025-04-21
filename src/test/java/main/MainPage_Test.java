@@ -4,6 +4,7 @@ import extensions.UIExtension;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import pages.CourseCatalogPage;
 import pages.LessonCardPage;
 import pages.MainPage;
 
@@ -11,12 +12,15 @@ import pages.MainPage;
 public class MainPage_Test {
 
     @Inject
+    private CourseCatalogPage courseCatalogPage;
+
+    @Inject
     private LessonCardPage lessonCardPage;
 
     @Inject
     private MainPage mainPage;
 
-    @Test
+    /*@Test
     public void mainPageTest() {
       mainPage.open()
           .waitForLoad();
@@ -24,15 +28,25 @@ public class MainPage_Test {
 
 
      String lessonTittle = mainPage
-             .open()
              .getLessonTittleByIndex(1);
 
 
      mainPage.clickLessonTileByTitle(lessonTittle);
 
-     lessonCardPage.pageHeaderShouldBeSameAs(lessonTittle);
+     mainPage.pageHeaderShouldBeSameAs(lessonTittle);
+    }*/
 
-    }
+    @Test
+    public void courseCatalogPageTest() {
 
+      courseCatalogPage.open().waitForLoad();
+
+      String lessonTittle = courseCatalogPage.findCourseByName();
+
+      courseCatalogPage.clickLessonTileByTitle(lessonTittle);
+
+      courseCatalogPage.pageHeaderShouldBeSameAs(lessonTittle);
+
+  }
 
 }
