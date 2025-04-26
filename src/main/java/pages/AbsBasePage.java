@@ -7,6 +7,7 @@ import exceptions.PathNotValidException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import waiters.Waiters;
 
 import java.lang.annotation.Annotation;
 
@@ -65,6 +66,12 @@ public abstract class AbsBasePage<T> extends AbsCommon<T> {
         return (T) this;
 
     }
+  public AbsBasePage<T> waitForLoad() {
+    {
+      new Waiters(driver).waitForPageToLoad();
+      return this;
+    }
+  }
 
 
 }

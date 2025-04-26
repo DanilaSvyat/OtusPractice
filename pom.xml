@@ -22,6 +22,7 @@
     <compiler.version>3.8.1</compiler.version>
     <checkstyle.version>3.4.0</checkstyle.version>
     <spotbugs.version>4.8.5.0</spotbugs.version>
+    <jsoup.version>1.19.1</jsoup.version>
     <browser>chrome</browser>
   </properties>
 
@@ -51,6 +52,11 @@
       <artifactId>guice</artifactId>
       <version>${guice.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>${jsoup.version}</version>
+    </dependency>
   </dependencies>
 
 <!--  <profiles>
@@ -72,7 +78,7 @@
           <systemPropertyVariables>
             <browser>${browser}</browser>
             <base.url>https://otus.ru</base.url>
-            <courseName>devops lead</courseName>
+            <courseName>разработка ядра linux</courseName>
           </systemPropertyVariables>
         </configuration>
       </plugin>

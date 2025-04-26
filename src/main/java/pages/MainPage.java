@@ -36,11 +36,11 @@ public class MainPage extends AbsBasePage<MainPage> {
 
         $(By.xpath(lessonCardLocatorTemplate)).click();
     }
-    public MainPage waitForLoad() {
+  /*  public MainPage waitForLoad() {
         {
             new Waiters(driver).waitForPageToLoad();
             return this;
         }
 
-    }
+    }*/
 }

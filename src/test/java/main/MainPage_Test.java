@@ -8,6 +8,8 @@ import pages.CourseCatalogPage;
 import pages.LessonCardPage;
 import pages.MainPage;
 
+import java.time.LocalDate;
+
 @ExtendWith(UIExtension.class)
 public class MainPage_Test {
 
@@ -36,7 +38,7 @@ public class MainPage_Test {
      mainPage.pageHeaderShouldBeSameAs(lessonTittle);
     }*/
 
-    @Test
+   /* @Test
     public void courseCatalogPageTest() {
 
       courseCatalogPage.open().waitForLoad();
@@ -47,6 +49,22 @@ public class MainPage_Test {
 
       courseCatalogPage.pageHeaderShouldBeSameAs(lessonTittle);
 
-  }
+  }*/
 
+  @Test
+  public void courseDateTest() {
+
+
+    courseCatalogPage.open().waitForLoad();
+
+    courseCatalogPage.checkCoursePage(courseCatalogPage.findCourseNameByDate(courseCatalogPage.findEarliestDate()),
+        courseCatalogPage.findEarliestDate());
+
+    courseCatalogPage.checkCoursePage(courseCatalogPage.findCourseNameByDate(courseCatalogPage.findLatestDate()),
+        courseCatalogPage.findLatestDate());
+
+
+
+
+  }
 }
