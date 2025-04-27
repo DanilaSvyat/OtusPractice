@@ -2,7 +2,7 @@ package data.menu;
 
 public enum HeaderMenuData {
 
-  LESSON("Обучение");
+  EDUCATION("Обучение");
 
   private String name;
 

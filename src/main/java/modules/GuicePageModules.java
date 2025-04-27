@@ -3,6 +3,7 @@ package modules;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+import components.popups.PopupHeaderSubMenu;
 import components.static_component.HeaderMenuComponent;
 import factory.WebDriverFactory;
 import org.checkerframework.checker.units.qual.C;
@@ -41,6 +42,12 @@ public MainPage getMainPage() {
   @Provides
   public HeaderMenuComponent getHeaderMenuComponent() {
      return new HeaderMenuComponent(driver);
+  }
+
+  @Singleton
+  @Provides
+  public PopupHeaderSubMenu getPopupHeaderSubMenu() {
+     return new PopupHeaderSubMenu(driver);
   }
 }
 

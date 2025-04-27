@@ -20,7 +20,7 @@ public abstract class AbsComponent<T> extends AbsCommon<T> {
   protected By getComponentBy() throws Exception{
     Component component = getClass().getAnnotation(Component.class);
     if(component != null) {
-      Pattern pattern = Pattern.compile("(.*?):(.*?)");
+      Pattern pattern = Pattern.compile("(.*):(.+)");
       Matcher matcher = pattern.matcher(component.value());
       if (matcher.find()) {
         switch (matcher.group(1)) {
@@ -33,7 +33,7 @@ public abstract class AbsComponent<T> extends AbsCommon<T> {
         }
       }
     }
-    throw new Exception("");
+    throw new Exception("Неверный формат компонента");
   }
   protected WebElement getComponentEntity() throws Exception{
     return $(getComponentBy());

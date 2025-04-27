@@ -1,14 +1,19 @@
 package main;
 
+import components.popups.PopupHeaderSubMenu;
+import components.static_component.HeaderMenuComponent;
+import data.menu.HeaderMenuData;
 import extensions.UIExtension;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.WebElement;
 import pages.CourseCatalogPage;
 import pages.LessonCardPage;
 import pages.MainPage;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @ExtendWith(UIExtension.class)
 public class MainPage_Test {
@@ -21,6 +26,12 @@ public class MainPage_Test {
 
     @Inject
     private MainPage mainPage;
+
+    @Inject
+    private HeaderMenuComponent headerMenuComponent;
+
+    @Inject
+    private PopupHeaderSubMenu popupHeaderSubMenu;
 
     /*@Test
     public void mainPageTest() {
@@ -51,6 +62,7 @@ public class MainPage_Test {
 
   }*/
 
+/*
   @Test
   public void courseDateTest() {
 
@@ -62,9 +74,31 @@ public class MainPage_Test {
 
     courseCatalogPage.checkCoursePage(courseCatalogPage.findCourseNameByDate(courseCatalogPage.findLatestDate()),
         courseCatalogPage.findLatestDate());
+*/
+
+  @Test
+  public void headerMenuTest() {
+
+    mainPage.open();
+
+    headerMenuComponent.waitForLoad(HeaderMenuData.EDUCATION);
 
 
+    try {
+      popupHeaderSubMenu.popupShouldNotBeVisible();
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
 
+    headerMenuComponent.setFocusToMenuItem(HeaderMenuData.EDUCATION);
+
+    try {
+      popupHeaderSubMenu.popupShouldBeVisible();
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
+    popupHeaderSubMenu.clickRandomCategoryAndVerify();
 
   }
 }

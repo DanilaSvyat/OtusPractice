@@ -35,12 +35,7 @@ public class Waiters {
     return waitForCondition(ExpectedConditions.invisibilityOf(element));
   }
 
-  public void waitForPageToLoad() {
-    new WebDriverWait(driver, Duration.ofSeconds(10)).until(
-        webDriver -> ((JavascriptExecutor) webDriver)
-            .executeScript("return document.readyState").equals("complete")
-    );
-  }
+
 
 
 
